@@ -11,7 +11,7 @@ interface Data {
 
 async function getProjects() {
   const query = `*[_type == "project"] {
-    title,
+      title,
       overview,
       link,
       _id,

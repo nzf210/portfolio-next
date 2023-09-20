@@ -1,1 +1,1 @@
-sanity
+sanity .env .env.local

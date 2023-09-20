@@ -1,13 +1,13 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './schemas'
 
 export default defineConfig({
   name: 'default',
   title: 'portfolio-nextjs',
 
-  projectId: '0u8bbn1h',
+  projectId: 'nptp96gc',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
