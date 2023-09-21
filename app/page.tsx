@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Me from "@/public/IMG_1312.png";
+import iTelegram from "@/public/telegram.svg";
+import iDiscord from "@/public/discord.svg";
+import iLinkendin from "@/public/linkedin.svg";
+import iTwitter from "@/public/twitter.svg";
 
 export default function Home() {
   return (
@@ -21,7 +25,10 @@ export default function Home() {
             Syahril Syamsuddin
           </h3>
           <p className="text-gray-500 dark:text-gray-300 text-center">
-            Hey my name is Syahril and I am a Full Stack Developer
+            Hey my name is Syahril and I am a Full Stack Developer and blochain enthusiast
+          </p>
+          <p className="text-gray-600 dark:text-gray-200 text-center text-sm mt-2">
+            Contact me for any disccusion
           </p>
 
           <div className="flex space-x-5 pt-6">
@@ -35,13 +42,7 @@ export default function Home() {
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/syahril-syamsuddin-832045244/" target="_blank">
-              <svg
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                className="w-8 h-8 text-teal-500 hover:text-teal-600"
-              >
-                <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM349.3 793.7H230.6V411.9h118.7v381.8zm-59.3-434a68.8 68.8 0 1168.8-68.8c-.1 38-30.9 68.8-68.8 68.8zm503.7 434H675.1V608c0-44.3-.8-101.2-61.7-101.2-61.7 0-71.2 48.2-71.2 98v188.9H423.7V411.9h113.8v52.2h1.6c15.8-30 54.5-61.7 112.3-61.7 120.2 0 142.3 79.1 142.3 181.9v209.4z" />
-              </svg>
+              <Image src={iLinkendin} alt="telgram" width={30} height={30} />
             </a>
             <a href="#" target="_blank">
               <svg
@@ -53,13 +54,13 @@ export default function Home() {
               </svg>
             </a>
             <a href="https://twitter.com/Syahril_210" target="_blank">
-              <svg
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                className="w-8 h-8 text-teal-500 hover:text-teal-600"
-              >
-                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm215.3 337.7c.3 4.7.3 9.6.3 14.4 0 146.8-111.8 315.9-316.1 315.9-63 0-121.4-18.3-170.6-49.8 9 1 17.6 1.4 26.8 1.4 52 0 99.8-17.6 137.9-47.4-48.8-1-89.8-33-103.8-77 17.1 2.5 32.5 2.5 50.1-2a111 111 0 01-88.9-109v-1.4c14.7 8.3 32 13.4 50.1 14.1a111.13 111.13 0 01-49.5-92.4c0-20.7 5.4-39.6 15.1-56a315.28 315.28 0 00229 116.1C492 353.1 548.4 292 616.2 292c32 0 60.8 13.4 81.1 35 25.1-4.7 49.1-14.1 70.5-26.7-8.3 25.7-25.7 47.4-48.8 61.1 22.4-2.4 44-8.6 64-17.3-15.1 22.2-34 41.9-55.7 57.6z" />
-              </svg>
+              <Image src={iTwitter} alt="telgram" width={30} height={30} />
+            </a>
+            <a href="https://t.me/nzf210" target="_blank">
+              <Image src={iTelegram} alt="telgram" width={30} height={30} />
+            </a>
+            <a href="https://discord.gg/Tudjw5hxt7" target="_blank">
+              <Image src={iDiscord} alt="telgram" width={30} height={30} />
             </a>
           </div>
         </div>
