@@ -2,14 +2,17 @@ import Form from "../components/Form";
 import { prisma } from "../db";
 
 async function getEntries() {
-  const data = await prisma.guestbook.findMany({
-    take: 50,
-    orderBy: {
-      created_at: "desc",
-    },
-  });
-
-  return data;
+  try {
+    const data = await prisma.guestbook.findMany({
+      take: 50,
+      orderBy: {
+        created_at: "desc",
+      },
+    });
+    return data;
+  } catch (error) {
+    return [];
+  }
 }
 
 export const revalidate = 60;

@@ -28,7 +28,7 @@ export default function Home() {
             Hey my name is Syahril and I am a Full Stack Developer and blochain enthusiast
           </p>
           <p className="text-gray-600 dark:text-gray-200 text-center text-sm mt-2">
-            Contact me for any disccusion
+            Contact me for disccusion
           </p>
 
           <div className="flex space-x-5 pt-6">
