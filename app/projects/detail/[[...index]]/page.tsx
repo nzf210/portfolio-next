@@ -101,10 +101,10 @@ const Detail = () => {
                     <p>{project?.description}</p>
                 </div>
                 <div className='w-[320px] md:w-[480px] lg:w-[680px] mx-auto mt-5'>
-                    <a href={project?.link} about='_blank'>{'Link : ' + project?.link || ''}</a>
+                    <a href={project?.link} target='_blank'><h2 className='font-semibold text-sm'>{'Link : '}</h2>{project?.link ?? ''}</a>
                 </div>
                 <div className='w-[320px] md:w-[480px] lg:w-[680px] mx-auto mt-5'>
-                    <a href={project?.source} about='_blank'>{'Source : ' + project?.source || ''}</a>
+                    <a href={`${project?.source}`} target="_blank"><h2 className='font-semibold text-sm'>{'Source : '}</h2> {project?.source ?? ''}</a>
                 </div>
 
                 <div className='w-[320px] md:w-[480px] lg:w-[680px] mx-auto mt-5'>
@@ -113,10 +113,10 @@ const Detail = () => {
                         {
                             project?.category?.map((item, index) =>
                             (<p key={'tectstack-' + index.toString()} className="
-                            text-xs bg-slate-200 text-slate-900 p-1 
-                            rounded-md font-thin mx-0.5 my-1 mt-1
+                            text-xs bg-slate-200 text-black font-semibold p-1 
+                            rounded-md mx-0.5 my-1 mt-1
                             shadow-sm hover:bg-slate-100
-                            dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-900                            
+                            dark:bg-slate-950 dark:text-slate-50 dark:hover:bg-slate-900                            
                             ">
                                 {item}
                             </p>)
@@ -136,9 +136,10 @@ export default Detail;
 const Swipe: React.FC<{ images: string[] }> = ({ images }) => {
     return (
         <div
-            className=' h-[320px] w-[320px] md:w-[480px] lg:w-[680px] md:h-[480px]  lg:h-[680px] 
+            className='w-[320px] md:w-[480px] lg:w-[680px] 
+            h-auto
             mx-auto rounded-sm border border-teal-200 p-0 mt-5 
-            shadow-xl dark:shadow-teal-100 flex items-center'
+            shadow-xl dark:shadow-teal-100 flex'
         >
             <Carousel
                 showArrows={true}
@@ -147,14 +148,14 @@ const Swipe: React.FC<{ images: string[] }> = ({ images }) => {
                 dynamicHeight={false}
                 showThumbs={true}
                 autoPlay={true}
-                className='h-[300px] md:h-[400px] lg:h-[550px] mx-auto bg-slate-500 -mt-5 md:-mt-20 lg:-mt-32'
+                className='mx-auto bg-slate-500 h-52 md:h-80 lg:h-[450px]'
             >
                 {
                     images.map((image, index) => (
                         <React.Fragment key={`image-${index.toString()}`}>
-                            <div>
+                            <div key={`image-${index.toString()}`} className='h-52  md:h-80 lg:h-[450px]'>
                                 <Image src={image} width={640} height={640} alt={image.slice(0, 7)} />
-                                <p className="legend">img {index + 1}</p>
+                                <p className="legend hover:bg-opacity-20">img {index + 1}</p>
                             </div>
                         </React.Fragment>
                     ))

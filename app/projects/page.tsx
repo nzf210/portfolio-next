@@ -41,7 +41,7 @@ export default async function Projects() {
   const data: Data[] = await getProjects();
 
   return (
-    <div className="divide-y divide-gray-200 dark:divide-gray-700">
+    <div className="divide-y divide-gray-200 dark:divide-gray-700 mb-10">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5">
         <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           All Projects
@@ -81,10 +81,10 @@ export default async function Projects() {
                   project.category?.map((category) => (
                     <>
                       <div key={category} className="
-                      text-xs bg-slate-200 text-slate-900 p-1 
-                      rounded-md font-thin mx-0.5 my-1 mt-1
+                      text-xs bg-slate-200 text-black font-semibold p-1 
+                      rounded-md mx-0.5 my-1 mt-1
                       shadow-sm hover:bg-slate-100
-                      dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-900
+                      dark:bg-slate-950 dark:text-slate-50 dark:hover:bg-slate-900   
                       ">{category}</div>
                     </>
                   ))
