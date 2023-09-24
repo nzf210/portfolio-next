@@ -6,7 +6,7 @@ export const listText = {
         {
             name: 'listtext',
             title: 'listtext',
-            type: 'string',
+            type: 'string'
         }
     ],
 };
