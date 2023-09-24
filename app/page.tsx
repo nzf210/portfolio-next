@@ -4,10 +4,40 @@ import iTelegram from "@/public/telegram.svg";
 import iDiscord from "@/public/discord.svg";
 import iLinkendin from "@/public/linkedin.svg";
 import iTwitter from "@/public/twitter.svg";
+import client from "@/lib/sanity.client";
+import React from "react";
+import dynamic from "next/dynamic";
+const TechSTack = dynamic(() => import("./components/TechStack"), {
+  loading: () => <p>Loading...</p>,
+});
 
-export default function Home() {
+interface DataList {
+  listtext: string;
+}
+interface Data {
+  detail: DataList;
+  logos: string[];
+}
+async function getProjects() {
+  try {
+    const query = `*[_type == "home"]{
+      "detail": detail ,
+      "logos" : logos[].asset->url
+      }
+    `;
+    const data = await client.fetch(query);
+    return data;
+  } catch (error) {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const data: Data[] = await getProjects();
+  const dataLogo = data[0].logos as unknown as string[];
+  const dataDetail = data[0].detail as unknown as DataList[];
   return (
-    <div className="divide-y divide-gray-100 dark:divide-gray-700">
+    <div className="divide-y divide-gray-100 dark:divide-gray-700 mb-10">
       <div className="space-y-2 pt-5 pb-8 md:space-x-5">
         <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-13">
           Home
@@ -27,7 +57,7 @@ export default function Home() {
           <p className="text-gray-500 dark:text-gray-300 text-center">
             Hey my name is Syahril and I am a Full Stack Developer and blochain enthusiast
           </p>
-          <p className="text-gray-600 dark:text-gray-200 text-center text-sm mt-2">
+          <p className="text-gray-600 dark:text-gray-200 text-center text-sm mt-2" style={{ textDecoration: 'underline' }}>
             Contact me for disccusion
           </p>
 
@@ -66,24 +96,19 @@ export default function Home() {
         </div>
 
         <div className="prose max-w-none prose-lg pt-8 pb-7 dark:prose-invert xl:col-span-2">
-          <p>
-            Hey everyone my name is Syahril, I am Full Stack
-            developer based in Makassar/Indonesia
-          </p>
-          <p>
-            I love building Full Stack applications with php, phyton, and javascript to share them
-            on YouTube. When I discovered javascript with React, I was blown away by its
-            interactivity and speed. Its virtual DOM and efficient rendering
-            mechanisms allowed me to create dynamic user interfaces that
-            responded to user actions in real-time.
-          </p>
-          <p>
-            Building applications with Reactand sharing them on YouTube is my
-            ultimate combination of creative expression, technical expertise,
-            and community engagement. I am thrilled to continue this journey,
-            honing my skills, and inspiring others in the process.
-          </p>
+          {
+            dataDetail.map((item: DataList, index: number) => (
+              <React.Fragment key={`home-${index.toString()}`}>
+                <p>
+                  {item.listtext}
+                </p>
+              </React.Fragment>
+            ))
+          }
         </div>
+      </div>
+      <div>
+        <TechSTack data={dataLogo} />
       </div>
     </div>
   );
