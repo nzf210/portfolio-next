@@ -11,7 +11,7 @@ async function TechStack({ data }: any) {
                         {
                             data.map((img: any, index: number) => (
                                 <React.Fragment key={`${index.toString()}`}>
-                                    <div className='flex'>
+                                    <div key={`${index.toString()}`} className='flex'>
                                         <Image src={img} alt='img' width={50} height={50} className='rounded-lg mx-auto items-center' />
                                     </div>
                                 </React.Fragment>
