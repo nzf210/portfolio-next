@@ -34,8 +34,8 @@ async function getProjects() {
 
 export default async function Home() {
   const data: Data[] = await getProjects();
-  const dataLogo = data[0].logos as unknown as string[];
   const dataDetail = data[0].detail as unknown as DataList[];
+  const dataLogo = data[0].logos as unknown as string[];
   return (
     <div className="divide-y divide-gray-100 dark:divide-gray-700 mb-10">
       <div className="space-y-2 pt-5 pb-8 md:space-x-5">
