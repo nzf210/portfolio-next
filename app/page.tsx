@@ -107,7 +107,7 @@ export default async function Home() {
           }
         </div>
       </div>
-      <div>
+      <div className="pt-8">
         <TechSTack data={dataLogo} />
       </div>
     </div>
