@@ -9,10 +9,10 @@ async function TechStack({ data }: any) {
                 <div className="grid grid-cols-4 gap-8 text-gray-500 sm:gap-6 md:grid-cols-6 lg:grid-cols-12 dark:text-gray-400">
                     <Suspense fallback={<h1 className='mx-auto text-center items-center self-center flex'>Loading...</h1>}>
                         {
-                            data.map((img: any, index: number) => (
+                            data.map((img: { asset: string, caption: string }, index: number) => (
                                 <React.Fragment key={`${index.toString()}`}>
                                     <div key={`${index.toString()}`} className='flex'>
-                                        <Image src={img} alt='img' width={50} height={50} className='rounded-lg mx-auto items-center' />
+                                        <Image src={img.asset} alt='caption' width={50} height={50} className='rounded-lg mx-auto items-center' title={img.caption} />
                                     </div>
                                 </React.Fragment>
                             ))

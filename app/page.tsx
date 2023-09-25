@@ -22,8 +22,11 @@ async function getProjects() {
   try {
     const query = `*[_type == "home"]{
       "detail": detail ,
-      "logos" : logos[].asset->url
+      "logos" : logos[]{
+      "asset": asset->url,
+      "caption" : caption
       }
+    }
     `;
     const data = await client.fetch(query);
     return data;
@@ -35,6 +38,7 @@ export const revalidate = 60;
 
 export default async function Home() {
   const data: Data[] = await getProjects();
+
   const dataDetail = data.length > 0 ? data[0].detail as unknown as DataList[] : [];
   const dataLogo = data.length > 0 ? data[0].logos as unknown as string[] : [];
   return (
